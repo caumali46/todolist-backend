@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Http\Resources\TaskResource;
 
-class CompleteTaskAction extends Controller
+class DeleteTaskAction extends Controller
 {
-    public function completeTask(Request $request, $id) {
+    public function deleteTask(Request $request, $id)
+    { 
         try {
-            $task = Task::find($id);
-            $task->is_completed = $request->is_completed;
-            $task->save();
-            return response()->json($task);
-
+            $item = Task::findOrFail($id);
+            $item->delete();
+            return response()->json('', 200);
+            
         } catch(\Exception $e) {
           return response()->json([ "code"=> 500, 'message' => $e->getMessage()], 500);
         }
