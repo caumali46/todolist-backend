@@ -18,3 +18,4 @@ Documentation can be found on the [Laragon website](https://lumen.laravel.com/do
 - php artisan serve,
 - php artisan migrate,
 - php artisan db:seed --class=DatabaseSeeder
+- Update Frontend .env for the api base url
