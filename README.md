@@ -1,4 +1,5 @@
-# TO do list app
+# Digital Awesome Development Test Project
+
  - Using Laravel lumen, Apache server and mysql.
  - Laragon for local development environment
  
