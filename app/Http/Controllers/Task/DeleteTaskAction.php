@@ -9,7 +9,7 @@ use App\Http\Resources\TaskResource;
 
 class DeleteTaskAction extends Controller
 {
-    public function deleteTask(Request $request, $id)
+    public function delete(Request $request, $id)
     { 
         try {
             $item = Task::findOrFail($id);

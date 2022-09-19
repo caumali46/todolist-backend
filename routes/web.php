@@ -22,19 +22,20 @@ Route::options("/{any:.*}", [function (){
 );
 
 $router->get('/', function () use ($router) {
-    try {
-        DB::connection()->getPDO();
-        echo DB::connection()->getDatabaseName();
-        } catch (\Exception $e) {
-        echo 'None';
-    }
-    echo '<pre/>';
+    // To check database connection
+    // try {
+    //     DB::connection()->getPDO();
+    //     echo DB::connection()->getDatabaseName();
+    //     } catch (\Exception $e) {
+    //     echo 'None';
+    // }
+    // echo '<pre/>';
     return $router->app->version();
 });
 
 $router->group(['prefix' => 'api/v1'], function() use ($router) {
     $router->get('/tasks', 'Task\GetAllTaskAction@getAll');
     $router->post('/tasks', 'Task\AddTaskAction@addNewTask');
-    $router->put('/tasks/{id', 'Task\CompleteTaskAction@completeTask');
+    $router->put('/tasks/{id}', 'Task\CompleteTaskAction@completeTask');
     $router->delete('/tasks/{id}', 'Task\DeleteTaskAction@delete');
 });
